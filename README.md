@@ -1,2 +1,2 @@
 # ansible-role-pithos
-Pithos (+ Cassandra) ansible role
+[Pithos](https://github.com/exoscale/pithos) (+ [Cassandra](http://cassandra.apache.org/)) ansible role
