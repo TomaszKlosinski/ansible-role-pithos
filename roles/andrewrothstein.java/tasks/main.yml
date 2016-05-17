@@ -1,0 +1,16 @@
+---
+- name: (Debian) install...
+  when: ansible_os_family == 'Debian'
+  include: Debian.yml
+
+- name: (RedHat) install...
+  when: ansible_os_family == 'RedHat'
+  include: RedHat.yml
+  
+- name: set JAVA_HOME...
+  template: >
+    src=etc/profile.d/java.sh.j2
+    dest=/etc/profile.d/java.sh
+    mode=644
+    owner=root
+    group=root

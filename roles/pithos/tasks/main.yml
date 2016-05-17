@@ -1,0 +1,43 @@
+---
+- name: Create dirs for Pithos
+  file: path={{ item }} owner=root group=root mode=0644 state=directory
+  with_items:
+    - "/opt/pithos"
+    - "/opt/pithos/logs"
+    - "/opt/pithos/conf"
+    - "/opt/pithos/bin"
+
+- name: Download Pithos
+  get_url: >-
+    url="{{ pithos_url }}"
+    dest=/opt/pithos/bin/pithos-0.7.4-standalone.jar
+    owner=root
+    group=root
+    mode=0755
+
+- name: Link version to current
+  file: >-
+    src=/opt/pithos/bin/pithos-0.7.4-standalone.jar
+    dest=/opt/pithos/bin/pithos.jar
+    owner=root
+    group=root
+    state=link
+
+- name: Add configuration file
+  template: >-
+    src=pithos.yml.j2
+    dest=/opt/pithos/conf/pithos.yml
+    owner=root
+    group=root
+    mode=0644
+
+- name: Check if initlized
+  shell: '/opt/apache-cassandra/bin/cqlsh localhost 9042 -e "DESCRIBE KEYSPACES" | grep -q storage && echo True || echo False'
+  register: schema_created
+
+- name: Converge the cassandra schema
+  command: "/usr/bin/java -jar /opt/pithos/bin/pithos.jar -f /opt/pithos/conf/pithos.yml -a install-schema"
+  when: not schema_created.stdout
+
+- name: Lunch Pithos
+  shell: "/usr/bin/java -jar /opt/pithos/bin/pithos.jar -f /opt/pithos/conf/pithos.yml &"

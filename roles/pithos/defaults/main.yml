@@ -1,0 +1,3 @@
+---
+pithos_service_host: '0.0.0.0'
+pithos_url: "https://github.com/exoscale/pithos/releases/download/0.7.4/pithos-0.7.4-standalone.jar"

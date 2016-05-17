@@ -1,0 +1,4 @@
+---
+#cassandra_broadcast_address: '0.0.0.0'
+cassandra_ver : '2.2.5'
+cassandra_cluster_name : 'Swisscom Cluster'
