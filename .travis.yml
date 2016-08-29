@@ -1,0 +1,16 @@
+sudo: required
+
+language: python
+
+services:
+  - docker
+
+before_install:
+  - echo test
+
+install:
+  - pip install molecule
+
+script:
+  - cd roles/pithos/
+  - molecule test
