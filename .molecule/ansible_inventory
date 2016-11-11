@@ -1,0 +1,4 @@
+ansible-role-pithos ansible_connection=docker
+
+[group1]
+ansible-role-pithos

@@ -6,11 +6,13 @@ services:
   - docker
 
 before_install:
-  - echo test
+  - echo before_install
 
 install:
+  - echo install
   - pip install molecule
 
 script:
+  - echo script
   - cd roles/pithos/
   - molecule test
