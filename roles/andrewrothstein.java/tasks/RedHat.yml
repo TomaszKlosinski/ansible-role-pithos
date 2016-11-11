@@ -5,4 +5,3 @@
     - java-1.{{java_ver}}.{{java_minor_ver}}-openjdk
     - java-1.{{java_ver}}.{{java_minor_ver}}-openjdk-devel
     - java-1.{{java_ver}}.{{java_minor_ver}}-openjdk-javadoc
-  

@@ -6,7 +6,7 @@
 - name: (RedHat) install...
   when: ansible_os_family == 'RedHat'
   include: RedHat.yml
-  
+
 - name: set JAVA_HOME...
   template: >
     src=etc/profile.d/java.sh.j2

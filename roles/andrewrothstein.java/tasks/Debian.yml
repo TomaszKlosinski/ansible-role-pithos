@@ -15,4 +15,3 @@
 
 - name : (Debian) set default
   package: name=oracle-java{{java_ver}}-set-default
-
