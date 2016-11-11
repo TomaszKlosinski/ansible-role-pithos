@@ -79,7 +79,7 @@ keystore:
 # The default provider relies on cassandra.
 bucketstore:
   default-region: 'CH-GV1'
-  cluster: '{{ ansible_eth0.ipv4.address }}'
+  cluster: '{{ ansible_default_ipv4.address }}'
   keyspace: 'storage'
 
 
@@ -98,11 +98,11 @@ bucketstore:
 regions:
   CH-GV1:
     metastore:
-      cluster: '{{ ansible_eth0.ipv4.address }}'
+      cluster: '{{ ansible_default_ipv4.address }}'
       keyspace: 'storage'
     storage-classes:
       standard:
-        cluster: '{{ ansible_eth0.ipv4.address }}'
+        cluster: '{{ ansible_default_ipv4.address }}'
         keyspace: 'storage'
         max-chunk: '128k'
         max-block-chunks: 1024

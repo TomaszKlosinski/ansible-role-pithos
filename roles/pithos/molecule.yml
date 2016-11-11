@@ -8,5 +8,6 @@ docker:
       image_version: latest
       ansible_groups:
         - group1
+      port_bindings: { 8080: 8080 }
 verifier:
   name: testinfra

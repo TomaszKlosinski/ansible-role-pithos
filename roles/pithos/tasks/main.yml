@@ -1,4 +1,9 @@
 ---
+
+- setup:
+  register: setup_result
+- debug: var=setup_result
+
 - name: Create dirs for Pithos
   file: path={{ item }} owner=root group=root mode=0644 state=directory
   with_items:
