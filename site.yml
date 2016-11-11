@@ -1,10 +1,7 @@
 ---
 
 - name: Deploy Cassasndra and Pithos
-  hosts: pithos
-  remote_user: root
-  tasks:
-    - package: name=vim state=installed
+  hosts: all
   roles:
     - ansible-role-repo-epel
     - andrewrothstein.cassandra
