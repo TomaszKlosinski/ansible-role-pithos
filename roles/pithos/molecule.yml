@@ -5,9 +5,10 @@ docker:
   containers:
     - name: ansible-role-pithos
       image: centos
-      image_version: latest
+      image_version: 7
       ansible_groups:
         - group1
       port_bindings: { 8080: 8080 }
+      privileged: True
 verifier:
   name: testinfra
