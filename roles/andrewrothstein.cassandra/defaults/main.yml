@@ -1,7 +1,8 @@
 ---
 # defaults file for ansible-cassandra
-cassandra_ver : '2.2'
+cassandra_ver : '2.2.8'
 cassandra_mirror : 'http://mirrors.advancedhosters.com/apache/cassandra'
+# http://mirrors.advancedhosters.com/apache/cassandra/2.2.8/apache-cassandra-2.2.8-bin.tar.gz
 
 cassandra_cluster_name : 'Swisscom Cluster'
 cassandra_num_tokens : 256
