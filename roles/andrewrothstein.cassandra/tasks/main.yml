@@ -50,4 +50,4 @@
     mode=0644
 
 - name: launch apache-cassandra
-  service: name=apache-cassandra enabled=yes state=started
+  service: name=apache-cassandra enabled=yes state=started use=systemd
