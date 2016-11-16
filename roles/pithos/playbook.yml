@@ -1,7 +1,10 @@
 ---
 - hosts: all
-  tasks:
-    - yum: state=installed name=systemd
+  pre_tasks:
+    - yum: state=installed name="{{ item }}"
+      with_items:
+        - systemd
+        - initscripts
   roles:
     - pithos
   vars:

@@ -10,5 +10,9 @@ docker:
         - group1
       port_bindings: { 8080: 8080 }
       privileged: True
+      volume_mounts:
+        - "/sys/fs/cgroup"
+      command: "/usr/sbin/init"
+      environment: { container: docker }
 verifier:
   name: testinfra
