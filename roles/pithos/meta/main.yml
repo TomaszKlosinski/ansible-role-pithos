@@ -1,4 +1,5 @@
 ---
 
 dependencies:
-  - andrewrothstein.cassandra
+- role: abelboldu.cassandra
+  cassandra_hosts: "{{ groups['pithos'] }}"

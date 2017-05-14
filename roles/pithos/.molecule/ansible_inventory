@@ -1,4 +1,9 @@
-ansible-role-pithos ansible_connection=docker
+[all]
+ansible-role-pithos1 ansible_connection=docker
+ansible-role-pithos2 ansible_connection=docker
+ansible-role-pithos3 ansible_connection=docker
 
-[group1]
-ansible-role-pithos
+[pithos]
+ansible-role-pithos1
+ansible-role-pithos2
+ansible-role-pithos3

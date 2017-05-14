@@ -1,22 +1,10 @@
 ---
 - hosts: all
-  pre_tasks:
-    - shell: "{{ item }}"
-      with_items:
-        - 'cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done);'
-        - 'rm -f /lib/systemd/system/multi-user.target.wants/*;'
-        - 'rm -f /etc/systemd/system/*.wants/*;'
-        - 'rm -f /lib/systemd/system/local-fs.target.wants/*;'
-        - 'rm -f /lib/systemd/system/sockets.target.wants/*udev*;'
-        - 'rm -f /lib/systemd/system/sockets.target.wants/*initctl*;'
-        - 'rm -f /lib/systemd/system/basic.target.wants/*;'
-        - 'rm -f /lib/systemd/system/anaconda.target.wants/*;'
-    - yum: state=installed name="{{ item }}"
-      with_items:
-        - systemd
-        - initscripts
+  tasks:
+    - set_fact: 
+        ansible_default_ipv4: 
+          address: 127.0.0.1
+      when: ansible_default_ipv4 is not defined
+    - debug: var=ansible_default_ipv4
   roles:
-    - pithos
-  vars:
-    ansible_default_ipv4:
-      address: "localhost"
+    - role: pithos

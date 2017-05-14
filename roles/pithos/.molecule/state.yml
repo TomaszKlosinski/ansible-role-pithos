@@ -1,8 +1,19 @@
 ---
-converged: null
-created: null
+converged: true
+created: true
 default_platform: null
 default_provider: null
 driver: docker
-hosts: {}
+driver_config: {}
+hosts:
+  ansible-role-pithos1:
+    groups:
+    - pithos
+  ansible-role-pithos2:
+    groups:
+    - pithos
+  ansible-role-pithos3:
+    groups:
+    - pithos
+installed_deps: true
 multiple_platforms: null
